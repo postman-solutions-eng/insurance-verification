@@ -1,0 +1,1638 @@
+openapi: 3.0.1
+info:
+  title: Insurance Verification V1
+  description: >-
+        This API enables third parties to validate if their customers/potential customers are insured by Nationwide, products include: auto, property such as homeowners, condo and tenant.
+  contact:
+    name: Nationwide Partner Onboarding Team
+    url: https://developer.nationwide.com
+    email: NW_EPO_Team@nationwide.com
+  version: 1.1.1
+servers:
+  - url: 'https://api.nationwide.com/strategic-partnership-management/insurance-verification/v1'
+security:
+  - bearerAuth: []
+  - api_key: []
+  - nw_auth_external: []
+tags:
+  - name: Policy Inquiry
+    description: Inquire if a policy holder has an active or pending Nationwide policy.
+paths:
+  /property-briefs:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Check for property insurance
+      description: Provide Nationwide Property Insurance Information if the requested customer has an Active or Renewal/Future Effective dated Policy with Nationwide. Includes Homeowners, Condo & Renters.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Brief_Request_Schema_property'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Brief_SuccessfulResponse_Schema_Property'
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+
+  /auto-briefs:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Check for auto insurance
+      description: Provide Nationwide Auto Insurance Information if the requested customer has an Active or Future Effective dated Policy with Nationwide.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+        - name: X-NW-Access-Token
+          in: header
+          required: true
+          description: The Apigee access token.
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Brief_Request_Schema_Auto'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Brief_SuccessfulResponse_Schema_Auto'
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+
+  /pet-briefs:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Check for pet insurance
+      description: Provide Nationwide Pet Insurance Information if the requested customer has an active Pet product with Nationwide.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Brief_Request_Schema_Pet'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema: 
+                $ref: '#/components/schemas/Brief_SuccessfulResponse_Schema_Pet'
+
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+
+
+  /property-evidences:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Information on specific policies
+      description: This API provides Nationwide policy details including annualPremium, balances, coverages, endorsements, insured, additional insured, policyTerm and more based on policy search.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Evidence_Request_Schema'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Evidence_SuccessfulResponse_Schema'
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+
+  /auto-evidences:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Information on specific policies
+      description: This API provides Nationwide policy details including annualPremium, coverages, insured, additional insured, policyTerm and more based on policy search.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Evidence_Request_Schema_Auto'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Evidence_SuccessfulResponse_Schema_Auto'
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+  
+  /dwelling-fire-briefs:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Check for dwelling fire briefs insurance
+      description: Provide Nationwide Dwelling Fire Insurance Information if the requested customer has an Active or Renewal/Future Effective dated Policy with Nationwide. Includes Homeowners, Condo & Renters.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Dwelling_Fire_Brief_Request_Schema_property'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Dwelling_Fire_Brief_SuccessfulResponse_Schema_Property'
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+  
+  /dwelling-fire-evidences:
+    post:
+      tags:
+        - Policy Inquiry
+      summary: Check for dwelling fire evidence insurance
+      description: Provide Nationwide Dwelling Fire Insurance Information if the requested customer has an Active or Renewal/Future Effective dated Policy with Nationwide. Includes Homeowners, Condo & Renters.
+      parameters:
+        - name: X-NW-Message-ID
+          in: header
+          required: true
+          description: A unique identification number for each message/transaction
+          schema:
+            type: string
+        - name: client_id
+          in: header
+          required: true
+          description: The API client key of the application
+          schema:
+            type: string
+      requestBody:
+        description: Provide request content associated with a policy.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Dwelling_Fire_Evidence_Request_Schema'
+        required: true
+      responses:        
+        default:
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '200':
+          description: Successful Response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Dwelling_Fire_Evidence_SuccessfulResponse_Schema'
+        '400':
+          description: Bad Request Faults
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '401':
+          description: UnAuthorized Request
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '404':
+          description: Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '500':
+          description: Internal server error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+        '503':
+          description: Service Unavailable
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorMessage_Schema'
+      x-codegen-request-body-name: body
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    api_key:
+      type: apiKey
+      in: header
+      name: client_id
+    nw_auth_external:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://api.nationwide.com/security/userAuthentication/v1/authorize
+          scopes: {}
+  parameters: {}
+  responses: {}
+  schemas:
+    Brief_Request_Schema_property:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - policyTypeCode
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "John"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInitial:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: A
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "JR"
+          format: string
+        policyTypeCode:
+          type: string
+          description: Describes the type of a policy user is looking for. Available values are "HOME", "CONDO", "TENANT".
+          example: "HOME"
+          enum:
+            - HOME
+            - CONDO
+            - TENANT
+        referenceDate:
+          type: string
+          description: The reference date can be used to specify a date (YYYY-MM-DD format) that falls between the effective and expiration dates of the policy that needs to be returned. This is applicable to scenarios where both current and renewal policies are available for a property. If a reference date isn’t provided, the renewal policy should be returned by default.
+          example: "2020-05-22"
+          format: date
+        propertyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+        mailingAddress:
+          $ref: "#/components/schemas/mailingAddress"
+
+    Brief_Request_Schema_Auto:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - policyTypeCode
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "Dwayne"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInitial:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: "J"
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "SR"
+          format: string
+        policyTypeCode:
+          type: string
+          description: Describes the type of a policy user is looking for. Available value is "AUTO".
+          example: "AUTO"
+          enum:
+            - AUTO
+        policyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+
+    Brief_Request_Schema_Pet:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - policyTypeCode
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "John"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInitial:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: "A"
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "JR"
+          format: string
+        policyTypeCode:
+          type: string
+          description: Describes the type of a policy user is looking for. Available value is "PET".
+          example: "PET"
+          enum:
+            - PET
+        policyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+    
+    Dwelling_Fire_Brief_Request_Schema_property:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - policyTypeCode
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "John"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInitial:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: A
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "JR"
+          format: string
+        policyTypeCode:
+          type: string
+          description: Describes the type of a policy user is looking for. Available value is "DWELLING FIRE".
+          example: "DWELLING FIRE"
+          enum:
+            - DWELLING FIRE
+        referenceDate:
+          type: string
+          description: The reference date can be used to specify a date (YYYY-MM-DD format) that falls between the effective and expiration dates of the policy that needs to be returned. This is applicable to scenarios where both current and renewal policies are available for a property. If a reference date isn’t provided, the renewal policy should be returned by default.
+          example: "2020-05-22"
+          format: date
+        propertyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+        mailingAddress:
+          $ref: "#/components/schemas/mailingAddress"
+
+    Brief_SuccessfulResponse_Schema_Auto:
+      type: object
+      properties:
+        briefResponses:
+          type: array
+          items:
+            properties:
+              firstName:
+                type: string
+                description: Should be the First name of the policy holder.
+                example: "Dwayne"
+              lastName:
+                type: string
+                description: Should be the Last name of the policy holder.
+                example: "Smith"
+              middleInitial:
+                type: string
+                description: Should be the Middle Initial of the policy holder.
+                example: "J"
+              suffix:
+                type: string
+                description: Should be the suffix.
+                example: "SR"
+              dateOfBirth:
+                type: string
+                format: date
+                description: Describes the date of birth of policy holder.
+                example: "1985-01-15"
+              policyTypeCode:
+                type: string
+                description: Describes the type of a policy user is looking for. Available value is "AUTO".
+                example: "AUTO"
+              policyNumber:
+                type: string
+                description: Describes the policy number associated with Nationwide.
+                example: "XYZ3135656569"
+              policyAddress:
+                $ref: "#/components/schemas/propertyAddress"
+              effectiveDate:
+                type: string
+                description: Describes the effective date of a policy.
+                example: "2020-05-15"
+              expirationDate:
+                type: string
+                description: Describes the expiration date of a policy.
+                example: "2021-05-15"
+              premium:
+                type: number
+                description: Describes the premium amount of policy.
+                example: 980.90
+
+    Evidence_Request_Schema:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - policyTypeCode
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "John"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInital:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: "A"
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "JR"
+          format: string
+        policyTypeCode: 
+          type: string
+          description: Describes the type of a policy user is looking for. Available values are "HOME", "CONDO", "TENANT".
+          example: "HOME"
+          enum:
+            - HOME
+            - CONDO
+            - TENANT
+        policyNumber:
+          type: string
+          description: Describes the policy number user is looking for.
+          example: ABC3135656569
+          format: string
+        referenceDate:
+          type: string
+          description: The reference date can be used to specify a date (YYYY-MM-DD format) that falls between the effective and expiration dates of the policy that needs to be returned. This is applicable to scenarios where both current and renewal policies are available for a property. If a reference date isn’t provided, the renewal policy should be returned by default.
+          example: "2020-05-22"
+          format: date
+        propertyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+        mailingAddress:
+          $ref: "#/components/schemas/mailingAddress"
+
+    Evidence_Request_Schema_Auto:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - policyTypeCode
+        - vin
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "John"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInital:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: "A"
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "JR"
+          format: string
+        policyTypeCode: 
+          type: string
+          description: Describes the type of a policy user is looking for. Available values are "AUTO".
+          example: "AUTO"
+          enum:
+            - AUTO
+        policyNumber:
+          type: string
+          description: Describes the policy number user is looking for.
+          example: "ABC3135656569"
+          format: string
+        vin:
+          type: string
+          description: Describes Vehicle Identification Number. It must be either last 6 digits or Full vin, Accepts only Alphanumeric.
+          example: "12345678901234567"
+          format: 6 or 17 character string
+        policyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+    
+    Dwelling_Fire_Evidence_Request_Schema:
+      type: object
+      required:
+        - policyNumber
+      properties:
+        firstName:
+          type: string
+          description: Should be the First name of the policy holder.
+          example: "John"
+          format: string
+        lastName:
+          type: string
+          description: Should be the Last name of the policy holder.
+          example: "Smith"
+          format: string
+        middleInital:
+          type: string
+          description: Should be the Middle Initial of the policy holder.
+          example: "A"
+          format: string
+        suffix:
+          type: string
+          description: Should be the suffix.
+          example: "JR"
+          format: string        
+        policyTypeCode: 
+          type: string
+          description: Describes the type of a policy user is looking for. Available value is "DWELLING FIRE".
+          example: "DWELLING FIRE"
+          enum:
+            - DWELLING FIRE
+        policyNumber:
+          type: string
+          description: Describes the policy number user is looking for.
+          example: ABC3135656569
+          format: string
+        referenceDate:
+          type: string
+          description: The reference date can be used to specify a date (YYYY-MM-DD format) that falls between the effective and expiration dates of the policy that needs to be returned. This is applicable to scenarios where both current and renewal policies are available for a property. If a reference date isn’t provided, the renewal policy should be returned by default.
+          example: "2020-05-22"
+          format: date
+        propertyAddress:
+          $ref: "#/components/schemas/propertyAddress"
+        mailingAddress:
+          $ref: "#/components/schemas/mailingAddress"
+
+    Brief_SuccessfulResponse_Schema_Property:
+      type: object
+      properties:
+        briefResponses:
+          type: array
+          items:
+            properties:
+              firstName:
+                type: string
+                description: Should be the First name of the policy holder.
+                example: "John"
+              lastName:
+                type: string
+                description: Should be the Last name of the policy holder.
+                example: "Smith"
+              middleInital:
+                type: string
+                description: Should be the Middle Initial of the policy holder.
+                example: "A"
+              suffix:
+                type: string
+                description: Should be the suffix.
+                example: "JR"
+              policyTypeCode:
+                type: string
+                description: Describes the type of a policy user is looking for. Available values are "HOME", "CONDO", "TENANT".
+                example: "HOME"
+              policyNumber:
+                type: string
+                description: Describes the policy number associated with Nationwide.
+                example: "ABC3135656569"
+              emailAddress:
+                type: string
+                description: Describes the user email address associated with the Policy. This field is applicable for Tenant policies only.
+                example: "abc@nationwide.com"
+              propertyAddress:
+                $ref: "#/components/schemas/propertyAddress"
+              effectiveDate:
+                type: string
+                description: Describes the effective date of the policy.
+                example: "2020-05-15"
+              expirationDate:
+                type: string
+                description: Describes the expiration date of the policy.
+                example: "2021-05-15"
+              premium:
+                type: number
+                description: Describes the premium amount of policy.
+                example: 1280.90
+    
+    Brief_SuccessfulResponse_Schema_Pet:
+      type: object
+      properties:
+        briefResponses:
+          description: |-
+            The policy holder has an active Nationwide Pet policy. The API will additionally return a `multiProductMember` boolean field if the policy holder has additional Nationwide products.
+
+            If the policy holder does *not* have an active Nationwide Pet product, the `multiProductMember` field will be "N/A".
+            
+            If no active Nationwide products were found for the specified policy holder, the API will return "No Data Found".
+          oneOf:
+            - type: array
+              items:
+                properties:
+                  firstName:
+                    type: string
+                    description: Should be the First name of the policy holder.
+                    example: "John"
+                  lastName:
+                    type: string
+                    description: Should be the Last name of the policy holder.
+                    example: "Smith"
+                  middleInital:
+                    type: string
+                    description: Should be the Middle Initial of the policy holder.
+                    example: "A"
+                  suffix:
+                    type: string
+                    description: Should be the suffix.
+                    example: "JR"
+                  policyTypeCode:
+                    type: string
+                    description: Describes the type of a policy user is looking for. Available value is "PET".
+                    example: "PET"
+                    enum:
+                      - PET
+                  policyAddress:
+                    $ref: "#/components/schemas/propertyAddress"
+                  activePetMember:
+                    type: boolean
+                    description: The policy holder has an active Nationwide Pet policy
+                    enum:
+                      - true
+                  multiProductMember:
+                    type: boolean
+                    description: The policy holder has an active Nationwide Pet policy and additional Nationwide products.
+                    example: false
+
+            - type: array
+              items:
+                properties:
+                  firstName:
+                    type: string
+                    description: Should be the First name of the policy holder.
+                    example: "John"
+                  lastName:
+                    type: string
+                    description: Should be the Last name of the policy holder.
+                    example: "Smith"
+                  middleInital:
+                    type: string
+                    description: Should be the Middle Initial of the policy holder.
+                    example: "A"
+                  suffix:
+                    type: string
+                    description: Should be the suffix.
+                    example: "JR"
+                  policyTypeCode:
+                    type: string
+                    description: Describes the type of a policy user is looking for. Available value is "PET".
+                    example: "PET"
+                  policyAddress:
+                    type: object
+                    enum: 
+                      - {}
+                  activePetMember:
+                    type: boolean
+                    description: The policy holder has an active Nationwide Pet policy
+                    enum:
+                      - false
+                  multiProductMember:
+                    type: string
+                    enum:
+                      - "N/A"
+            - type: string
+              enum:
+                - "No Data Found"
+    
+    Evidence_SuccessfulResponse_Schema:
+      type: object
+      properties:
+        evidenceResponses:
+          type: array
+          items:
+            properties:
+                policyNumber:
+                  type: string
+                  description: Provides the Policy Number of a policy user is looking for.
+                policyTypeCode:
+                  type: string
+                  description: Provides the PolicyTypeCode of a policy. Available values are HOME, CONDO, TENANT
+                policyType:
+                  type: string
+                  description: Provides the PolicyType of a policy. Available values are Homeowners, Condominium, Tenant
+                policyStatus:
+                  type: string
+                  description: Provides the PolicyStatus of a policy. Available values are ACTIVE, CANCELLED, PENDING
+                effectiveDate:
+                  type: string
+                  description: Provides the effective date of the policy
+                  format: date
+                expirationDate:
+                  type: string
+                  format: date
+                  description: Provides the expiration date of policy
+                annualPremium:
+                  type: number
+                  format: currency
+                  description: Provides the annualPremium of policy
+                  example: 1234.90
+                paymentPlan:
+                  type: string
+                  description: Provides the pay plan/ plan frequency of policy enrolled.
+                  example: Monthly, Annual 
+                paymentDueDate:
+                  type: string
+                  format: date
+                  description: Provides the payment due date of a policy.
+                premiumBalance:
+                  type: number
+                  description: Balance Amount to pay for the entire term
+                  example: 1200.90
+                insured:
+                  type: array
+                  description: Provides all the Insured details of a policy user requested for.
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/Insured"
+                additionalInsured:
+                  type: array
+                  description: Provides all the additional Insured details of a policy user requested for.
+                  items:
+                    allOf:
+                      - allOf:
+                          - type: object
+                            description: Information about the Person
+                            properties:
+                              firstName:
+                                type: string
+                                description: First Name
+                                example: Tyler
+                              middleName:
+                                type: string
+                                description: Middle Name
+                                example: Huckleberry
+                              lastName:
+                                type: string
+                                format: "[a-zA-Z]{1}[a-zA-Z'\\- ]+"
+                                description: Last Name
+                                example: Frankenstein
+                propertyUnits:
+                  type: number
+                  example: 3
+                  description: Provides number of units present in the property.
+                occupancyType:
+                  type: string
+                  description: Provides occupancy type of the property. Available values are PRIMARY, SECONDARY
+                  example: PRIMARY
+                propertyAddress:
+                  $ref: "#/components/schemas/Insured/properties/address"
+                underwriter: 
+                  $ref: "#/components/schemas/Underwriter"
+                agent: 
+                  $ref: "#/components/schemas/Agent"
+                dwellingCoverage:
+                  type: number
+                  description: Provides dwelling coverage limit for the property. This field is applicable for home and condo policies only.
+                extendedDwellingCoverage:
+                  type: number
+                  description: Provides extended dwelling coverage value for the property. This field is applicable for home and condo policies only.
+                extendedDwellingCoverageIncluded:
+                  type: boolean
+                  description: Indicates if a property has extended dwelling coverages. If not this is set to false. This field is applicable for home and condo policies only.
+                coveredFullReplacement:
+                  type: boolean
+                  description: Indicates if a property has covered full replacement coverage. If not this is set to false. This field is applicable for home and condo policies only.
+                replacementCost:
+                  type: number
+                  description: Provides replacement cost value / limit for the property. This field is applicable for home and condo policies only.
+                actualCashValue:
+                  type: boolean
+                  description: Provides boolean value for actual cash value of the property. This field is applicable for home and condo policies only.
+                allPerilsDeductible:
+                  type: number
+                  description: Provides all peril deductible value for the property.
+                windExcluded:
+                  type: boolean
+                  description: Indicates if a property has wind exclusion coverage. If not this is set to false.
+                    This field is applicable for home and condo policies only.
+                hurricaneExcluded:
+                  type: boolean
+                  description:  Indicates if a property has hurricane exclusion coverage. If not this is set to false.
+                    This field is applicable for home and condo policies only.
+                allUnitsCovered:
+                  type: boolean
+                  description:  Indicates if it covers all units of a property. It is set to true if propertyUnits = 1. If >1  this is set to false.
+                personalProperty:
+                  type: number
+                  description: Provides personal Property limit for the policy. This field is applicable for tenant policies only.
+                personalLiability:
+                  type: number
+                  description: Provides Personal Liability value / limit for the policy. This field is applicable for tenant policies only.
+                medicalPayments:
+                  type: number
+                  description: Provides Medical Payments value / limit for the policy. This field is applicable for tenant policies only.
+                endorsements:
+                  type: array
+                  description: Provides all the endorsements details(name, description and limit) for the property.
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/Endorsement"
+                deductibles:
+                  type: array
+                  description: Provides all the deductible details (name, amount and percentage) for the property.
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/Deductible"
+                mortgagees:
+                  type: array
+                  description: Provides the mortgagee details (name, address, loan number, position) for the property.
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/Mortgage"
+    
+    Dwelling_Fire_Evidence_SuccessfulResponse_Schema:
+      type: object
+      properties:
+        evidenceResponses:
+          type: array
+          items:
+            properties:
+                policyNumber:
+                  type: string
+                  description: Provides the Policy Number of a policy user is looking for.
+                policyTypeCode:
+                  type: string
+                  description: Provides the PolicyTypeCode of a policy. Available values are DWELLING FIRE
+                policyStatus:
+                  type: string
+                  description: Provides the PolicyStatus of a policy. Available values are ACTIVE, CANCELLED, PENDING
+                effectiveDate:
+                  type: string
+                  description: Provides the effective date of the policy
+                  format: date
+                expirationDate:
+                  type: string
+                  format: date
+                  description: Provides the expiration date of policy
+                annualPremium:
+                  type: number
+                  format: currency
+                  description: Provides the annualPremium of policy
+                  example: 1234.90
+                insured:
+                  type: array
+                  description: Provides all the Insured details of a policy user requested for.
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/Insured"
+                secondaryInsured:
+                  type: array
+                  description: Provides all the secondary Insured details of a policy user requested for.
+                  items:
+                    allOf:
+                      - allOf:
+                          - type: object
+                            description: Information about the Person
+                            properties:
+                              firstName:
+                                type: string
+                                description: First Name
+                                example: Tyler
+                              middleName:
+                                type: string
+                                description: Middle Name
+                                example: Huckleberry
+                              lastName:
+                                type: string
+                                format: "[a-zA-Z]{1}[a-zA-Z'\\- ]+"
+                                description: Last Name
+                                example: Frankenstein
+                propertyAddress:
+                  $ref: "#/components/schemas/Insured/properties/address"
+                mortgagees:
+                  type: array
+                  description: Provides the mortgagee details (name, address, loan number, position) for the property.
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/Mortgage"
+                coverages:
+                  type: array
+                  description: Provides all the secondary Insured details of a policy user requested for.
+                  items:
+                    allOf:
+                      - allOf:
+                          - type: object
+                            description: Information about the Person
+                            properties:
+                              name:
+                                type: string
+                                description: Name of the coverage
+                                example: Fire Department Service Charge
+                              description:
+                                type: string
+                                description: This is the selected value for any of the applicable term options on the coverage.
+                                example: $100.0 / Included 
+                occupanyType:
+                  type: string
+                  description: Is the home occupied by the Owner or Vacant? 
+                  example: PRIMARY and SECONDARY
+                paymentPlan:
+                  type: string
+                  description: Provides the pay plan/ plan frequency of policy enrolled.
+                  example: Monthly, Annual 
+                paymentDueDate:
+                  type: string
+                  format: date
+                  description: Provides the payment due date of a policy.
+                premiumBalance:
+                  type: integer
+                  format: currency
+                  description: Provides the premium amount of policy
+                  example: 100
+    Evidence_SuccessfulResponse_Schema_Auto:
+      type: object
+      properties:
+        evidenceResponses:
+          type: array
+          items:
+            properties:
+                policyNumber:
+                  type: string
+                  description: Provides the Policy Number of a policy user is looking for.
+                policyTypeCode:
+                  type: string
+                  description: Provides the PolicyTypeCode of a policy. Available values are AUTO
+                  enum:
+                    - AUTO
+                policyStatus:
+                  type: string
+                  enum:
+                    - ACTIVE
+                    - PENDING
+                  description: Provides the PolicyStatus of a policy. Available values are ACTIVE, PENDING
+                effectiveDate:
+                  type: string
+                  format: date
+                  description: Provides the effective date of the policy
+                expirationDate:
+                  type: string
+                  format: date
+                  description: Provides the expiration date of policy
+                orginalEffectiveDate:
+                  type: string
+                  format: date
+                  description: Provides the orginal Effective Date of policy
+                premiumAmount:
+                  type: number
+                  format: currency
+                  description: Provides the premium amount of policy
+                  example: 1234.90
+                insured:
+                  description: Provides the Primary Insured details of a policy user requested for.
+                  allOf:
+                    - $ref: "#/components/schemas/Insured"
+                secondaryInsured:
+                  type: array
+                  description: Provides all the secondary Insured details of a policy user requested for.
+                  items:
+                    allOf:
+                      - allOf:
+                          - type: object
+                            description: Information about the Person
+                            properties:
+                              firstName:
+                                type: string
+                                description: First Name
+                                example: Tyler
+                              middleName:
+                                type: string
+                                description: Middle Name
+                                example: Huckleberry
+                              lastName:
+                                type: string
+                                format: "[a-zA-Z]{1}[a-zA-Z'\\- ]+"
+                                description: Last Name
+                                example: Frankenstein
+                policyAddress:
+                  $ref: "#/components/schemas/Insured/properties/address"
+                excludedDriverFlag:
+                  type: boolean
+                  description: Indicates if an excluded driver exists. If not this is set to false.
+                vin:
+                  type: string
+                  description: Provides Full vin (Vehicle Identification Number) of the insured vehicle. 
+                  example: "12345678901234567890"
+                year:
+                  type: number
+                  description: Provides year of the insured vehicle.
+                  example: 2014
+                make:
+                  type: string
+                  description: Provides the make of the insured vehicle on the policy.
+                  example: "HYUN"
+                model:
+                  type: string
+                  description: Provides the make of the insured vehicle on the policy.
+                  example: "VELOSTER"
+                additionalInterests:
+                  $ref: "#/components/schemas/additionalInterests"
+                coverages:
+                  $ref: "#/components/schemas/coverages"
+    
+    Dwelling_Fire_Brief_SuccessfulResponse_Schema_Property:
+      type: object
+      properties:
+        briefResponses:
+          type: array
+          items:
+            properties:
+              firstName:
+                type: string
+                description: Should be the First name of the policy holder.
+                example: "John"
+              lastName:
+                type: string
+                description: Should be the Last name of the policy holder.
+                example: "Smith"
+              middleInital:
+                type: string
+                description: Should be the Middle Initial of the policy holder.
+                example: "A"
+              suffix:
+                type: string
+                description: Should be the suffix.
+                example: "JR"
+              policyTypeCode:
+                type: string
+                description: Describes the type of a policy user is looking for. Available values are "DWELLING FIRE".
+                example: "DWELLING FIRE"
+              policyNumber:
+                type: string
+                description: Describes the policy number associated with Nationwide.
+                example: "ABC3135656569"
+              emailAddress:
+                type: string
+                description: Describes the user email address associated with the Policy. This field is applicable for Tenant policies only.
+                example: "abc@nationwide.com"
+              propertyAddress:
+                $ref: "#/components/schemas/propertyAddress"
+              effectiveDate:
+                type: string
+                description: Describes the effective date of the policy.
+                example: "2020-05-15"
+              expirationDate:
+                type: string
+                description: Describes the expiration date of the policy.
+                example: "2021-05-15"
+              premium:
+                type: number
+                description: Describes the premium amount of policy.
+                example: 1280.90
+
+    Insured:
+      type: object
+      properties:
+        address:
+          allOf:
+            - required:
+                - addressLine1
+                - city
+                - state
+                - postalCode
+            - type: object
+              description: Standard Address
+              properties:
+                addressLine1:
+                  type: string
+                  format: 1-60 characters
+                  description: Include "APT" or other prefixes to unit numbers
+                  example: 1234 E Broad St
+                addressLine2:
+                  type: string
+                  format: 1-60 characters
+                  description: 
+                    Apartment numbers or overflow from `addressLine1`  
+                    Include "APT" or other prefixes to unit numbers
+                  example: APT 534C
+                city:
+                  type: string
+                  format: 1-60 characters
+                  description: City of the Address
+                  example: Columbus
+                state:
+                  type: string
+                  format: XX - State Abbreviation
+                  description: State of the Address
+                  example: OH
+                postalCode:
+                  type: string
+                  format: XXXXX or XXXXX-XXXX
+                  description: Postal Code of the Address
+                  example: 43016-1111
+        firstName:
+          type: string
+          description: First Name
+        lastName:
+          type: string
+          description: Last Name
+        middleName:
+          type: string
+          description: Middle Name
+        suffix:
+          type: string
+          format: Predefined picklist values
+          description: suffix
+    Underwriter:
+      type: object
+      properties:
+        name:
+          type: string
+          description: underwriter name
+        phone:
+          type: string
+          description: underwriter phone number
+          format: x-xxx-xxx-xxxx
+          example: 1-877-669-6877
+        address:
+          $ref: "#/components/schemas/Insured/properties/address"
+    additionalInterests:
+          type: array
+          items:
+            properties:
+              companyName:
+                type: string
+                description: underwriter name
+              address:
+                $ref: "#/components/schemas/Insured/properties/address"
+    Agent:
+      type: object
+      properties:
+        phone:
+          type: string
+          description: agent phone number
+          format: xxx-xxx-xxxx
+          example: 877-669-6877
+        phoneExtension:
+          type: string
+        email:
+          type: string
+          description: agent email address
+        address:
+          $ref: "#/components/schemas/Insured/properties/address"
+        firstName:
+          type: string
+          description: agent first name
+        lastName:
+          type: string
+          description: agent last name
+        middleName:
+          type: string
+          description: agent middle name
+    coverages:
+          type: array
+          items:
+            properties:
+              name:
+                type: string
+                description: Should be the coverage name of the policy.
+                example: "Comprehensive"
+              description:
+                type: string
+                description: Should be the coverage description of the policy.
+                example: "$500 Deductible"
+    Endorsement:
+      type: object
+      properties:
+        endorsementName:
+          type: string
+        endorsementDescription:
+          type: string
+        endorsementLimit:
+          type: number
+    Deductible:
+      type: object
+      properties:
+        deductibleName:
+          type: string
+        deductibleAmount:
+          type: number
+        deductiblePercentage:
+          type: number
+    Mortgage:
+      type: object
+      properties:
+        name:
+          type: string
+          description: mortgage company name
+        position:
+          type: number
+        loanNumber:
+          type: string
+          description: loan number
+        address:
+          $ref: "#/components/schemas/Insured/properties/address"
+    propertyAddress:
+      type: object
+      required:
+            - addressLine1
+            - city
+            - state
+            - postalCode
+      properties:
+        addressLine1:
+          type: string
+          description: This provides the address .
+          example: "123 Clover Lane"
+        addressLine2:
+          type: string
+          description: This provides the specific unit.
+          example: "Unit 1A"
+        city:
+          type: string
+          description: This provides the city of the Address.
+          example: "Detroit"
+        state:
+          type: string
+          format: XX - State Abbreviation
+          description: This provides the state code of the Address.
+          example: "MI"
+        postalCode:
+          type: string
+          description: This provides the Postal Code of the Address.
+          example: "48226"
+    mailingAddress:
+      type: object
+      properties:
+        addressLine1:
+          type: string
+          description: This provides the address .
+          example: "500 Green Street"
+        addressLine2:
+          type: string
+          description: This provides the specific unit.
+          example: "Unit 2B"
+        city:
+          type: string
+          description: This provides the city of the Address.
+          example: "Detroit"
+        state:
+          type: string
+          format: XX - State Abbreviation
+          description: This provides the state code of the Address.
+          example: "MI"
+        postalCode:
+          type: string
+          description: This provides the Postal Code of the Address.
+          example: "48226"
+
+
+    ErrorMessage_Schema:
+      type: object
+      properties:
+        userMessage:
+          type: string
+          description: User-friendly message for the Warning/Error
+        developerMessage:
+          type: string
+          description: Developer information on the Warning/Error
+        messageID:
+          type: string
+          description: >-
+            NW Message ID provided in the header and used in the API log. This
+            id should be included in any user messaging to assist in
+            troubleshooting.
+        code:
+          type: integer
+          description: Code generated by the API to identify the specific error.
+
