@@ -9,6 +9,8 @@ id = 057ffa72-9a51-4750-a526-12ad140cc7e1
 
 [config.relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"16858264-3e37ee64-34be-40de-bb85-5d9a5aed9a5b","path":"Insurance Verification API Documentation.json","metaData":{"generateCollectionPreferences":"{\"requestNameSource\":\"Fallback\",\"indentCharacter\":\"Space\",\"parametersResolution\":\"Example\",\"folderStrategy\":\"Paths\",\"includeAuthInfoInExample\":true,\"enableOptionalParameters\":true,\"keepImplicitHeaders\":false,\"includeDeprecated\":true,\"alwaysInheritAuthentication\":false,\"updateCollectionSync\":true,\"requestParametersResolution\":\"Example\",\"exampleParametersResolution\":\"Example\"}"}}
+files[] = {"id":"16858264-ebad9b47-db65-4eb3-bd83-8f0b3d5298d5","path":"Insurance Verification API Testing.json","metaData":{}}
 
 [config.relations.collections.metaData]
 

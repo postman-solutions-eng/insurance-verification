@@ -1,0 +1,3512 @@
+{
+	"info": {
+		"_postman_id": "3e37ee64-34be-40de-bb85-5d9a5aed9a5b",
+		"name": "Insurance Verification API Documentation",
+		"description": "This API enables third parties to validate if their customers/potential customers are insured by Nationwide, products include: auto, property such as homeowners, condo and tenant.\n\nContact Support:\n Name: Nationwide Partner Onboarding Team\n Email: NW_EPO_Team@nationwide.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "16858264-3e37ee64-34be-40de-bb85-5d9a5aed9a5b"
+	},
+	"item": [
+		{
+			"name": "property-evidences",
+			"item": [
+				{
+					"name": "Information on specific policies",
+					"id": "7b87500c-36d0-49b4-aeb4-55ceab53ed04",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/property-evidences",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"property-evidences"
+							]
+						},
+						"description": "This API provides Nationwide policy details including annualPremium, balances, coverages, endorsements, insured, additional insured, policyTerm and more based on policy search."
+					},
+					"response": [
+						{
+							"id": "8e715e3a-9eff-496d-b272-5a2c25a7d94a",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"evidenceResponses\": [\n    {\n      \"policyNumber\": \"consectetur est culpa exercitation\",\n      \"policyTypeCode\": \"ut mollit pariatur\",\n      \"policyType\": \"dolor reprehenderit\",\n      \"policyStatus\": \"laboris ullamco sed\",\n      \"effectiveDate\": \"2020-04-05\",\n      \"expirationDate\": \"2009-06-28\",\n      \"annualPremium\": 1234.9,\n      \"paymentPlan\": \"Monthly, Annual\",\n      \"paymentDueDate\": \"1961-08-12\",\n      \"premiumBalance\": 1200.9,\n      \"insured\": [\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"amet\",\n          \"lastName\": \"do nostrud aliqua laborum dolor\",\n          \"middleName\": \"dolor mollit sit veniam\",\n          \"suffix\": \"reprehenderit sit dolore\"\n        },\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"culpa eiusmod in\",\n          \"lastName\": \"ullamco occaecat laborum sunt\",\n          \"middleName\": \"Duis velit\",\n          \"suffix\": \"dolor Excepteur nulla nostrud pariatur\"\n        }\n      ],\n      \"additionalInsured\": [\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        },\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        }\n      ],\n      \"propertyUnits\": 3,\n      \"occupancyType\": \"PRIMARY\",\n      \"propertyAddress\": {\n        \"addressLine1\": \"1234 E Broad St\",\n        \"city\": \"Columbus\",\n        \"state\": \"OH\",\n        \"postalCode\": \"43016-1111\",\n        \"addressLine2\": \"APT 534C\"\n      },\n      \"underwriter\": {\n        \"name\": \"tempor sed\",\n        \"phone\": \"1-877-669-6877\",\n        \"address\": {\n          \"addressLine1\": \"1234 E Broad St\",\n          \"city\": \"Columbus\",\n          \"state\": \"OH\",\n          \"postalCode\": \"43016-1111\",\n          \"addressLine2\": \"APT 534C\"\n        }\n      },\n      \"agent\": {\n        \"phone\": \"877-669-6877\",\n        \"phoneExtension\": \"ipsum qui\",\n        \"email\": \"quis ex\",\n        \"address\": {\n          \"addressLine1\": \"1234 E Broad St\",\n          \"city\": \"Columbus\",\n          \"state\": \"OH\",\n          \"postalCode\": \"43016-1111\",\n          \"addressLine2\": \"APT 534C\"\n        },\n        \"firstName\": \"in quis Excepteur dolor\",\n        \"lastName\": \"esse proident\",\n        \"middleName\": \"adipisicing ut ex\"\n      },\n      \"dwellingCoverage\": 89867094.61315897,\n      \"extendedDwellingCoverage\": -20029714.965362504,\n      \"extendedDwellingCoverageIncluded\": false,\n      \"coveredFullReplacement\": false,\n      \"replacementCost\": -56935561.91272,\n      \"actualCashValue\": false,\n      \"allPerilsDeductible\": 66141772.10935596,\n      \"windExcluded\": true,\n      \"hurricaneExcluded\": false,\n      \"allUnitsCovered\": true,\n      \"personalProperty\": -25264295.29567738,\n      \"personalLiability\": -4492927.4225503355,\n      \"medicalPayments\": -80197637.6550534,\n      \"endorsements\": [\n        {\n          \"endorsementName\": \"commodo ipsum fugiat ad\",\n          \"endorsementDescription\": \"nostrud in voluptate et\",\n          \"endorsementLimit\": -35562502.92338694\n        },\n        {\n          \"endorsementName\": \"aliqui\",\n          \"endorsementDescription\": \"ut\",\n          \"endorsementLimit\": -67416668.32796228\n        }\n      ],\n      \"deductibles\": [\n        {\n          \"deductibleName\": \"sed est quis sit\",\n          \"deductibleAmount\": 46867915.789913684,\n          \"deductiblePercentage\": 86864159.85595009\n        },\n        {\n          \"deductibleName\": \"ad dolore eiusmod aliquip\",\n          \"deductibleAmount\": -66889152.640014514,\n          \"deductiblePercentage\": 34881447.39154211\n        }\n      ],\n      \"mortgagees\": [\n        {\n          \"name\": \"esse eiusmod\",\n          \"position\": 67419865.36248264,\n          \"loanNumber\": \"adipisicing do\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        },\n        {\n          \"name\": \"sed proident sunt do\",\n          \"position\": 43821697.090969145,\n          \"loanNumber\": \"incididunt\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        }\n      ]\n    },\n    {\n      \"policyNumber\": \"minim dolore officia ut\",\n      \"policyTypeCode\": \"in Ut\",\n      \"policyType\": \"voluptate sunt laborum qui\",\n      \"policyStatus\": \"incididunt tempor adipisicing ea\",\n      \"effectiveDate\": \"2003-01-19\",\n      \"expirationDate\": \"1946-09-21\",\n      \"annualPremium\": 1234.9,\n      \"paymentPlan\": \"Monthly, Annual\",\n      \"paymentDueDate\": \"1987-06-23\",\n      \"premiumBalance\": 1200.9,\n      \"insured\": [\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"cupidatat anim dolore\",\n          \"lastName\": \"tempor ad aut\",\n          \"middleName\": \"non quis culpa fugiat\",\n          \"suffix\": \"nostrud Ut proident qui\"\n        },\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"veniam cupidatat\",\n          \"lastName\": \"ex\",\n          \"middleName\": \"commodo Lorem reprehenderit esse\",\n          \"suffix\": \"in\"\n        }\n      ],\n      \"additionalInsured\": [\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        },\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        }\n      ],\n      \"propertyUnits\": 3,\n      \"occupancyType\": \"PRIMARY\",\n      \"propertyAddress\": {\n        \"addressLine1\": \"1234 E Broad St\",\n        \"city\": \"Columbus\",\n        \"state\": \"OH\",\n        \"postalCode\": \"43016-1111\",\n        \"addressLine2\": \"APT 534C\"\n      },\n      \"underwriter\": {\n        \"name\": \"in\",\n        \"phone\": \"1-877-669-6877\",\n        \"address\": {\n          \"addressLine1\": \"1234 E Broad St\",\n          \"city\": \"Columbus\",\n          \"state\": \"OH\",\n          \"postalCode\": \"43016-1111\",\n          \"addressLine2\": \"APT 534C\"\n        }\n      },\n      \"agent\": {\n        \"phone\": \"877-669-6877\",\n        \"phoneExtension\": \"laboris nisi\",\n        \"email\": \"sed magna aliquip\",\n        \"address\": {\n          \"addressLine1\": \"1234 E Broad St\",\n          \"city\": \"Columbus\",\n          \"state\": \"OH\",\n          \"postalCode\": \"43016-1111\",\n          \"addressLine2\": \"APT 534C\"\n        },\n        \"firstName\": \"labore fugiat\",\n        \"lastName\": \"ex est\",\n        \"middleName\": \"et labore\"\n      },\n      \"dwellingCoverage\": -33969365.52777046,\n      \"extendedDwellingCoverage\": -17722111.091462,\n      \"extendedDwellingCoverageIncluded\": true,\n      \"coveredFullReplacement\": true,\n      \"replacementCost\": 68644295.82076013,\n      \"actualCashValue\": true,\n      \"allPerilsDeductible\": -1130139.1983372867,\n      \"windExcluded\": true,\n      \"hurricaneExcluded\": false,\n      \"allUnitsCovered\": false,\n      \"personalProperty\": -24161209.907964885,\n      \"personalLiability\": -76287457.58657356,\n      \"medicalPayments\": 30927485.79822944,\n      \"endorsements\": [\n        {\n          \"endorsementName\": \"minim ea\",\n          \"endorsementDescription\": \"occaecat eu\",\n          \"endorsementLimit\": -59941681.417786926\n        },\n        {\n          \"endorsementName\": \"commodo aute\",\n          \"endorsementDescription\": \"dolore fugiat tempor\",\n          \"endorsementLimit\": -54386744.7682985\n        }\n      ],\n      \"deductibles\": [\n        {\n          \"deductibleName\": \"Duis sed lab\",\n          \"deductibleAmount\": -71545114.40224102,\n          \"deductiblePercentage\": 41151637.14879531\n        },\n        {\n          \"deductibleName\": \"deserunt sunt ut anim esse\",\n          \"deductibleAmount\": 70506113.18346474,\n          \"deductiblePercentage\": -85097882.75198847\n        }\n      ],\n      \"mortgagees\": [\n        {\n          \"name\": \"exercitation et \",\n          \"position\": 67363889.9601542,\n          \"loanNumber\": \"ullamco pariatur consectetur sit\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        },\n        {\n          \"name\": \"pariatur minim fugiat id nostrud\",\n          \"position\": -7028901.017579868,\n          \"loanNumber\": \"sed incididunt sunt Duis\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+						},
+						{
+							"id": "da9bc4be-80d2-4078-8d2a-360590738efa",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "7c1669d7-5732-49ac-9df7-affb37bdee27",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "b159e435-e3fc-4bcf-ba95-60266d248b58",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "b775c587-29a4-41f2-9c65-ec04a1a325bd",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "6575a8af-a6ff-4e7b-8ba1-6d46e78836c3",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "bdde89f6-0386-4323-9b09-ce36e5eaac58",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-evidences"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "f216f188-e37c-43e0-a932-76914eab4dea"
+		},
+		{
+			"name": "property-briefs",
+			"item": [
+				{
+					"name": "Check for property insurance",
+					"id": "1b8650a7-32ca-4d7e-b24b-5fc7c5e3c91d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/property-briefs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"property-briefs"
+							]
+						},
+						"description": "Provide Nationwide Property Insurance Information if the requested customer has an Active or Renewal/Future Effective dated Policy with Nationwide. Includes Homeowners, Condo & Renters."
+					},
+					"response": [
+						{
+							"id": "ace93150-9510-4077-a4f4-7fcc781feacd",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"briefResponses\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"middleInital\": \"A\",\n      \"suffix\": \"JR\",\n      \"policyTypeCode\": \"HOME\",\n      \"policyNumber\": \"ABC3135656569\",\n      \"emailAddress\": \"abc@nationwide.com\",\n      \"propertyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"effectiveDate\": \"2020-05-15\",\n      \"expirationDate\": \"2021-05-15\",\n      \"premium\": 1280.9\n    },\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"middleInital\": \"A\",\n      \"suffix\": \"JR\",\n      \"policyTypeCode\": \"HOME\",\n      \"policyNumber\": \"ABC3135656569\",\n      \"emailAddress\": \"abc@nationwide.com\",\n      \"propertyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"effectiveDate\": \"2020-05-15\",\n      \"expirationDate\": \"2021-05-15\",\n      \"premium\": 1280.9\n    }\n  ]\n}"
+						},
+						{
+							"id": "182a4814-4aff-45be-ba4d-f0dfb5100037",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "25b1d8c4-5ae8-440c-8af5-4ba6dcf16e2d",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "61f385df-4fab-457f-88bf-ca8fb552b189",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "b70f9699-8666-4d41-8d84-c91e83503b6a",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "7fe8b018-e120-419b-a456-1ec77567dc2c",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "84adb856-ecd6-4697-9fe9-488035109e58",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"HOME\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/property-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"property-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "00cb62c2-8020-4d29-8538-27581d6ab07d"
+		},
+		{
+			"name": "pet-briefs",
+			"item": [
+				{
+					"name": "Check for pet insurance",
+					"id": "006d34ba-1863-4b8d-833c-35dbf499fba4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pet-briefs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pet-briefs"
+							]
+						},
+						"description": "Provide Nationwide Pet Insurance Information if the requested customer has an active Pet product with Nationwide."
+					},
+					"response": [
+						{
+							"id": "e7a4693d-d0bd-4e1c-a55e-7d1f3bc50521",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"briefResponses\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"middleInital\": \"A\",\n      \"suffix\": \"JR\",\n      \"policyTypeCode\": \"PET\",\n      \"policyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"activePetMember\": true,\n      \"multiProductMember\": false\n    },\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"middleInital\": \"A\",\n      \"suffix\": \"JR\",\n      \"policyTypeCode\": \"PET\",\n      \"policyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"activePetMember\": true,\n      \"multiProductMember\": false\n    }\n  ]\n}"
+						},
+						{
+							"id": "0f0a6504-9d23-4e20-96f5-9b98e8717808",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "d9d6092e-57ce-4ace-9339-7ec7838d3bda",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "13d83304-d997-41fa-8ffc-cb2fe49a2fc6",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "4602b7b5-3c51-4b7f-9a3e-a68a2f59660f",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "37c0bc83-6f81-4c60-bd5d-ff94eb5f52e6",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "d68e7740-5d10-48d3-946a-0ba2710872b9",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"PET\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pet-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pet-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "423e0d4c-73ad-472e-ac73-562fcc7c96bf"
+		},
+		{
+			"name": "dwelling-fire-evidences",
+			"item": [
+				{
+					"name": "Check for dwelling fire evidence insurance",
+					"id": "1b246947-4e39-44f1-b83d-77ceea360fab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/dwelling-fire-evidences",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dwelling-fire-evidences"
+							]
+						},
+						"description": "Provide Nationwide Dwelling Fire Insurance Information if the requested customer has an Active or Renewal/Future Effective dated Policy with Nationwide. Includes Homeowners, Condo & Renters."
+					},
+					"response": [
+						{
+							"id": "243bd84f-dcc4-4ac8-a1ef-149d0df722bc",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"evidenceResponses\": [\n    {\n      \"policyNumber\": \"commodo velit amet\",\n      \"policyTypeCode\": \"aute ad Duis exer\",\n      \"policyStatus\": \"aliqua exercitation\",\n      \"effectiveDate\": \"2019-11-03\",\n      \"expirationDate\": \"1965-03-17\",\n      \"annualPremium\": 1234.9,\n      \"insured\": [\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"et ut adipisicing\",\n          \"lastName\": \"aute et ullamc\",\n          \"middleName\": \"veniam fugiat officia Lorem\",\n          \"suffix\": \"sint ut\"\n        },\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"magna quis eiusmod\",\n          \"lastName\": \"sunt commodo quis\",\n          \"middleName\": \"quis amet ut\",\n          \"suffix\": \"pariatur adipisicing tempor\"\n        }\n      ],\n      \"secondaryInsured\": [\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        },\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        }\n      ],\n      \"propertyAddress\": {\n        \"addressLine1\": \"1234 E Broad St\",\n        \"city\": \"Columbus\",\n        \"state\": \"OH\",\n        \"postalCode\": \"43016-1111\",\n        \"addressLine2\": \"APT 534C\"\n      },\n      \"mortgagees\": [\n        {\n          \"name\": \"est esse sunt ea sed\",\n          \"position\": -42598551.377926566,\n          \"loanNumber\": \"Duis est aute\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        },\n        {\n          \"name\": \"sed Excepteur exercitation\",\n          \"position\": 81817603.10395682,\n          \"loanNumber\": \"id adipisicing aliquip incididunt dolor\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        }\n      ],\n      \"coverages\": [\n        {\n          \"name\": \"Fire Department Service Charge\",\n          \"description\": \"$100.0 / Included\"\n        },\n        {\n          \"name\": \"Fire Department Service Charge\",\n          \"description\": \"$100.0 / Included\"\n        }\n      ],\n      \"occupanyType\": \"PRIMARY and SECONDARY\",\n      \"paymentPlan\": \"Monthly, Annual\",\n      \"paymentDueDate\": \"1969-03-07\",\n      \"premiumBalance\": 100\n    },\n    {\n      \"policyNumber\": \"Duis fugiat\",\n      \"policyTypeCode\": \"veniam eiusmod occaecat dolor l\",\n      \"policyStatus\": \"laboris officia aliquip\",\n      \"effectiveDate\": \"1975-01-21\",\n      \"expirationDate\": \"1967-10-01\",\n      \"annualPremium\": 1234.9,\n      \"insured\": [\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"minim aute anim fugiat\",\n          \"lastName\": \"nisi velit reprehend\",\n          \"middleName\": \"ut sed\",\n          \"suffix\": \"dolore fugiat eu ex\"\n        },\n        {\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          },\n          \"firstName\": \"aute eiusmod laboris adipisicing\",\n          \"lastName\": \"sint dolore minim et\",\n          \"middleName\": \"commodo Ut\",\n          \"suffix\": \"laborum aliquip Duis\"\n        }\n      ],\n      \"secondaryInsured\": [\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        },\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        }\n      ],\n      \"propertyAddress\": {\n        \"addressLine1\": \"1234 E Broad St\",\n        \"city\": \"Columbus\",\n        \"state\": \"OH\",\n        \"postalCode\": \"43016-1111\",\n        \"addressLine2\": \"APT 534C\"\n      },\n      \"mortgagees\": [\n        {\n          \"name\": \"eiusmod pariatur id\",\n          \"position\": 90504085.99462602,\n          \"loanNumber\": \"sed labore\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        },\n        {\n          \"name\": \"est dolor Lorem\",\n          \"position\": 26790138.67794846,\n          \"loanNumber\": \"anim proident\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        }\n      ],\n      \"coverages\": [\n        {\n          \"name\": \"Fire Department Service Charge\",\n          \"description\": \"$100.0 / Included\"\n        },\n        {\n          \"name\": \"Fire Department Service Charge\",\n          \"description\": \"$100.0 / Included\"\n        }\n      ],\n      \"occupanyType\": \"PRIMARY and SECONDARY\",\n      \"paymentPlan\": \"Monthly, Annual\",\n      \"paymentDueDate\": \"1964-06-15\",\n      \"premiumBalance\": 100\n    }\n  ]\n}"
+						},
+						{
+							"id": "a59eeb27-101f-4912-a2c2-4e8578f34e13",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "02f1394b-6106-49ea-905a-6dc601cf3825",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "ef6ef9d3-4e0e-49d3-b976-1d6f2f288d61",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "3914a1f4-136e-4998-8040-4ee064090768",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "1569d41a-580f-4559-9521-a876e028c3b2",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "1de693e9-dc8f-4fc8-b236-068a2a6c9862",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"policyNumber\": \"ABC3135656569\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-evidences"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "5f55c7e7-517f-4ff9-afb6-bc32928c0c30"
+		},
+		{
+			"name": "dwelling-fire-briefs",
+			"item": [
+				{
+					"name": "Check for dwelling fire briefs insurance",
+					"id": "f9af2608-40f4-41a2-a708-0119d95acf83",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/dwelling-fire-briefs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dwelling-fire-briefs"
+							]
+						},
+						"description": "Provide Nationwide Dwelling Fire Insurance Information if the requested customer has an Active or Renewal/Future Effective dated Policy with Nationwide. Includes Homeowners, Condo & Renters."
+					},
+					"response": [
+						{
+							"id": "761160a1-cf71-49d4-962c-f5252cc75f5a",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"briefResponses\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"middleInital\": \"A\",\n      \"suffix\": \"JR\",\n      \"policyTypeCode\": \"DWELLING FIRE\",\n      \"policyNumber\": \"ABC3135656569\",\n      \"emailAddress\": \"abc@nationwide.com\",\n      \"propertyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"effectiveDate\": \"2020-05-15\",\n      \"expirationDate\": \"2021-05-15\",\n      \"premium\": 1280.9\n    },\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Smith\",\n      \"middleInital\": \"A\",\n      \"suffix\": \"JR\",\n      \"policyTypeCode\": \"DWELLING FIRE\",\n      \"policyNumber\": \"ABC3135656569\",\n      \"emailAddress\": \"abc@nationwide.com\",\n      \"propertyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"effectiveDate\": \"2020-05-15\",\n      \"expirationDate\": \"2021-05-15\",\n      \"premium\": 1280.9\n    }\n  ]\n}"
+						},
+						{
+							"id": "ee871387-725c-42da-8cdc-5f76d4cd48e8",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "64764476-6340-4b18-8e3f-5ee99d5dd65d",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "937504f7-6315-4d8b-beb0-7a213d03011d",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "e28d6548-ad84-4975-8e49-7cf2d5960566",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "22056bd9-269a-4422-aed4-ec20b2a5536f",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "fb073246-1bab-4d32-81c4-15bd58c71a94",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"DWELLING FIRE\",\n  \"middleInitial\": \"A\",\n  \"suffix\": \"JR\",\n  \"referenceDate\": \"2020-05-22\",\n  \"propertyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  },\n  \"mailingAddress\": {\n    \"addressLine1\": \"500 Green Street\",\n    \"addressLine2\": \"Unit 2B\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/dwelling-fire-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dwelling-fire-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "7d512a36-639b-47c4-91eb-818b227e0086"
+		},
+		{
+			"name": "auto-evidences",
+			"item": [
+				{
+					"name": "Information on specific policies",
+					"id": "5fc88a9d-c68b-4a86-8c7e-c9f6ef8f9e96",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auto-evidences",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auto-evidences"
+							]
+						},
+						"description": "This API provides Nationwide policy details including annualPremium, coverages, insured, additional insured, policyTerm and more based on policy search."
+					},
+					"response": [
+						{
+							"id": "463847de-2477-44a9-a8e4-5b64c1266df9",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"evidenceResponses\": [\n    {\n      \"policyNumber\": \"minim\",\n      \"policyTypeCode\": \"AUTO\",\n      \"policyStatus\": \"ACTIVE\",\n      \"effectiveDate\": \"2006-10-15\",\n      \"expirationDate\": \"1958-03-10\",\n      \"orginalEffectiveDate\": \"1993-06-17\",\n      \"premiumAmount\": 1234.9,\n      \"insured\": {\n        \"address\": {\n          \"addressLine1\": \"1234 E Broad St\",\n          \"city\": \"Columbus\",\n          \"state\": \"OH\",\n          \"postalCode\": \"43016-1111\",\n          \"addressLine2\": \"APT 534C\"\n        },\n        \"firstName\": \"sint irure exercitation\",\n        \"lastName\": \"in dolor labo\",\n        \"middleName\": \"qui labore elit\",\n        \"suffix\": \"ad Ut adipisicing nostrud\"\n      },\n      \"secondaryInsured\": [\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        },\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        }\n      ],\n      \"policyAddress\": {\n        \"addressLine1\": \"1234 E Broad St\",\n        \"city\": \"Columbus\",\n        \"state\": \"OH\",\n        \"postalCode\": \"43016-1111\",\n        \"addressLine2\": \"APT 534C\"\n      },\n      \"excludedDriverFlag\": false,\n      \"vin\": \"12345678901234567890\",\n      \"year\": 2014,\n      \"make\": \"HYUN\",\n      \"model\": \"VELOSTER\",\n      \"additionalInterests\": [\n        {\n          \"companyName\": \"nulla\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        },\n        {\n          \"companyName\": \"sed voluptate in quis\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        }\n      ],\n      \"coverages\": [\n        {\n          \"name\": \"Comprehensive\",\n          \"description\": \"$500 Deductible\"\n        },\n        {\n          \"name\": \"Comprehensive\",\n          \"description\": \"$500 Deductible\"\n        }\n      ]\n    },\n    {\n      \"policyNumber\": \"ullamco est\",\n      \"policyTypeCode\": \"AUTO\",\n      \"policyStatus\": \"ACTIVE\",\n      \"effectiveDate\": \"1970-03-13\",\n      \"expirationDate\": \"2009-11-13\",\n      \"orginalEffectiveDate\": \"1999-12-08\",\n      \"premiumAmount\": 1234.9,\n      \"insured\": {\n        \"address\": {\n          \"addressLine1\": \"1234 E Broad St\",\n          \"city\": \"Columbus\",\n          \"state\": \"OH\",\n          \"postalCode\": \"43016-1111\",\n          \"addressLine2\": \"APT 534C\"\n        },\n        \"firstName\": \"magna esse anim\",\n        \"lastName\": \"quis occaecat\",\n        \"middleName\": \"reprehenderit Ut aliquip fug\",\n        \"suffix\": \"enim minim irure cillum\"\n      },\n      \"secondaryInsured\": [\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        },\n        {\n          \"firstName\": \"Tyler\",\n          \"middleName\": \"Huckleberry\",\n          \"lastName\": \"Frankenstein\"\n        }\n      ],\n      \"policyAddress\": {\n        \"addressLine1\": \"1234 E Broad St\",\n        \"city\": \"Columbus\",\n        \"state\": \"OH\",\n        \"postalCode\": \"43016-1111\",\n        \"addressLine2\": \"APT 534C\"\n      },\n      \"excludedDriverFlag\": false,\n      \"vin\": \"12345678901234567890\",\n      \"year\": 2014,\n      \"make\": \"HYUN\",\n      \"model\": \"VELOSTER\",\n      \"additionalInterests\": [\n        {\n          \"companyName\": \"culpa ipsum\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        },\n        {\n          \"companyName\": \"et anim\",\n          \"address\": {\n            \"addressLine1\": \"1234 E Broad St\",\n            \"city\": \"Columbus\",\n            \"state\": \"OH\",\n            \"postalCode\": \"43016-1111\",\n            \"addressLine2\": \"APT 534C\"\n          }\n        }\n      ],\n      \"coverages\": [\n        {\n          \"name\": \"Comprehensive\",\n          \"description\": \"$500 Deductible\"\n        },\n        {\n          \"name\": \"Comprehensive\",\n          \"description\": \"$500 Deductible\"\n        }\n      ]\n    }\n  ]\n}"
+						},
+						{
+							"id": "bf9f09c1-f637-41f2-8439-6662dbf4dc39",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "0bad6e7e-70cc-43ac-af47-a8ce6ed27746",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "838c0cac-526b-4ae0-96e4-0297b9d197f7",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "6a7e9230-1127-4d2c-bcdb-90191a1a7242",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "307aadb8-3b51-4226-851f-ca23c6702e92",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "979c4d17-b3ef-4932-9a7a-1710d02f4a0c",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"vin\": \"12345678901234567\",\n  \"middleInital\": \"A\",\n  \"suffix\": \"JR\",\n  \"policyNumber\": \"ABC3135656569\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-evidences",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-evidences"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "f05575e0-7d51-4dc2-85cf-78c1041503aa"
+		},
+		{
+			"name": "auto-briefs",
+			"item": [
+				{
+					"name": "Check for auto insurance",
+					"id": "83a31145-80c6-49f5-81dc-9896f8490b4c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) A unique identification number for each message/transaction",
+								"key": "X-NW-Message-ID",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The API client key of the application",
+								"key": "client_id",
+								"value": "commodo magna"
+							},
+							{
+								"description": "(Required) The Apigee access token.",
+								"key": "X-NW-Access-Token",
+								"value": "commodo magna"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auto-briefs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auto-briefs"
+							]
+						},
+						"description": "Provide Nationwide Auto Insurance Information if the requested customer has an Active or Future Effective dated Policy with Nationwide."
+					},
+					"response": [
+						{
+							"id": "3d7fa55d-13ce-4aab-8538-08d702301c75",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"briefResponses\": [\n    {\n      \"firstName\": \"Dwayne\",\n      \"lastName\": \"Smith\",\n      \"middleInitial\": \"J\",\n      \"suffix\": \"SR\",\n      \"dateOfBirth\": \"1985-01-15\",\n      \"policyTypeCode\": \"AUTO\",\n      \"policyNumber\": \"XYZ3135656569\",\n      \"policyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"effectiveDate\": \"2020-05-15\",\n      \"expirationDate\": \"2021-05-15\",\n      \"premium\": 980.9\n    },\n    {\n      \"firstName\": \"Dwayne\",\n      \"lastName\": \"Smith\",\n      \"middleInitial\": \"J\",\n      \"suffix\": \"SR\",\n      \"dateOfBirth\": \"1985-01-15\",\n      \"policyTypeCode\": \"AUTO\",\n      \"policyNumber\": \"XYZ3135656569\",\n      \"policyAddress\": {\n        \"addressLine1\": \"123 Clover Lane\",\n        \"city\": \"Detroit\",\n        \"state\": \"MI\",\n        \"postalCode\": \"48226\",\n        \"addressLine2\": \"Unit 1A\"\n      },\n      \"effectiveDate\": \"2020-05-15\",\n      \"expirationDate\": \"2021-05-15\",\n      \"premium\": 980.9\n    }\n  ]\n}"
+						},
+						{
+							"id": "f0e9f055-34d7-4df4-8c79-8759e5827232",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "c94bfcc5-2c47-4488-b420-9541dda2ad40",
+							"name": "UnAuthorized Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "01d5fdbe-44c0-49de-a839-dd3edc64b08c",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "7e27b6f5-5568-49a9-a635-00999663788e",
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "5e2ee627-44d8-4138-bf85-dff9c62c1d27",
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						},
+						{
+							"id": "7dbbe391-f5a5-4a6e-868c-f8d1fd64b814",
+							"name": "Bad Request Faults",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) A unique identification number for each message/transaction",
+										"key": "X-NW-Message-ID",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The API client key of the application",
+										"key": "client_id",
+										"value": "commodo magna"
+									},
+									{
+										"description": "(Required) The Apigee access token.",
+										"key": "X-NW-Access-Token",
+										"value": "commodo magna"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Dwayne\",\n  \"lastName\": \"Smith\",\n  \"policyTypeCode\": \"AUTO\",\n  \"middleInitial\": \"J\",\n  \"suffix\": \"SR\",\n  \"policyAddress\": {\n    \"addressLine1\": \"123 Clover Lane\",\n    \"city\": \"Detroit\",\n    \"state\": \"MI\",\n    \"postalCode\": \"48226\",\n    \"addressLine2\": \"Unit 1A\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auto-briefs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auto-briefs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"userMessage\": \"occaecat\",\n  \"developerMessage\": \"Lorem est nulla ut consequat\",\n  \"messageID\": \"proident Excepteur ullamco\",\n  \"code\": -32953054\n}"
+						}
+					]
+				}
+			],
+			"id": "a5cd9c54-d400-406b-9bcb-f8fdb06a4665"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "97a08d05-bb06-42ab-816e-418f3d17e36c",
+			"key": "baseUrl",
+			"value": "https://api.nationwide.com/strategic-partnership-management/insurance-verification/v1"
+		}
+	]
+}
