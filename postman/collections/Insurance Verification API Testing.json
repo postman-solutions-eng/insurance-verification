@@ -2964,6 +2964,52 @@
 			"item": [
 				{
 					"name": "Check for auto insurance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64adaae6-56e4-4d62-9e35-b4116b04288b",
+								"exec": [
+									"if(pm.response.code == 200){",
+									"    ",
+									"    // INITIAL VARIABLES",
+									"    responseJson                = pm.response.json();",
+									"    requiredBriefsProperties   = pm.collectionVariables.get('requiredBriefsProperties').split(',');",
+									"            ",
+									"",
+									"    // CONSUMER-DRIVEN CONTRACT TESTS",
+									"    // -------------------------------",
+									"",
+									"    // CONTRACT TEST: At the root level, there can only be a network property",
+									"    pm.test(\"Response does not contain other properties at the root level\", function () {",
+									"        // There cannot be other properties at the root level",
+									"        pm.expect(Object.keys(responseJson)).to.include.members(['briefResponses']).and.to.have.length(1);",
+									"    });",
+									"",
+									"    // CONTRACT TEST: The briefResponses property must be a list of network objects.",
+									"    pm.test(\"Response contains a list of networks which contains at least one brief\", function () {",
+									"        pm.expect(responseJson.briefResponses).to.be.an('array').with.length.greaterThan(0);",
+									"    });",
+									"",
+									"    // Test each network item",
+									"    responseJson.briefResponses.forEach( function (brief, index) {",
+									"",
+									"        // CONTRACT TESTS: Test mandatory response properities",
+									"        pm.test(\"Brief \" + index + \" contains all required properties\", function () {",
+									"            pm.expect(Object.keys(brief)).to.include.members(requiredBriefsProperties);",
+									"        });",
+									"",
+									"        pm.test(\"Brief \" + index + \" contains a firstName property with a string value\", function () {",
+									"            pm.expect(brief.firstName).and.to.be.a('string')",
+									"        });",
+									"",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "e6514b89-2720-4ece-9054-fbd949893ab0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -2993,6 +3039,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json"
+							},
+							{
+								"key": "x-mock-response-code",
+								"value": "{{mock_scenario}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -3496,29 +3547,107 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e6892c13-1a05-496a-817e-c0cf6eaa776d",
+				"id": "5e6a9e15-80d1-4d43-9b40-12048d640839",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"// var mock_scenario = pm.variables.get(\"mock_scenario\");",
+					"// pm.request.headers.add(\"x-mock-response-code\", mock_scenario);"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "29e8e9da-6d06-4346-8ca0-47bf1c715548",
+				"id": "832e23f2-858d-4a7e-87c3-0f92e3a8d27d",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.test(\"Response time is less than 2s\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"});",
+					"",
+					"var mock_scenario = pm.variables.get(\"mock_scenario\");",
+					"console.log(\"mock scenario\", mock_scenario);",
+					"// var x_mock_code = pm.request.headers.get(\"x-mock-response-code\");",
+					"// console.log(\"x mock code\", x_mock_code);",
+					"",
+					"switch(mock_scenario) {",
+					"  case \"400\":",
+					"    pm.test(\"Status code is 400\", function () {",
+					"        pm.response.to.have.status(400);",
+					"    });",
+					"    responseJson                = pm.response.json();",
+					"    pm.test(\"Error response cotains error code\", function () {",
+					"        // There cannot be other properties at the root level",
+					"        pm.expect(Object.keys(responseJson)).to.include.members(['code']);",
+					"    });",
+					"",
+					"    break;",
+					"  case \"401\":",
+					"    pm.test(\"Status code is 401\", function () {",
+					"        pm.response.to.have.status(401);",
+					"    });",
+					"    responseJson                = pm.response.json();",
+					"    pm.test(\"Error response cotains error code\", function () {",
+					"        // There cannot be other properties at the root level",
+					"        pm.expect(Object.keys(responseJson)).to.include.members(['code']);",
+					"    });",
+					"    break;",
+					"  case \"404\":",
+					"    pm.test(\"Status code is 404\", function () {",
+					"        pm.response.to.have.status(404);",
+					"    });",
+					"    responseJson                = pm.response.json();",
+					"    pm.test(\"Error response cotains error code\", function () {",
+					"        // There cannot be other properties at the root level",
+					"        pm.expect(Object.keys(responseJson)).to.include.members(['code']);",
+					"    });",
+					"    break;",
+					"  case \"500\":",
+					"    pm.test(\"Status code is 500\", function () {",
+					"        pm.response.to.have.status(500);",
+					"    });",
+					"    responseJson                = pm.response.json();",
+					"    pm.test(\"Error response cotains error code\", function () {",
+					"        // There cannot be other properties at the root level",
+					"        pm.expect(Object.keys(responseJson)).to.include.members(['code']);",
+					"    });",
+					"    break;",
+					"  case \"503\":",
+					"    pm.test(\"Status code is 503\", function () {",
+					"        pm.response.to.have.status(503);",
+					"    });",
+					"    responseJson                = pm.response.json();",
+					"    pm.test(\"Error response cotains error code\", function () {",
+					"        // There cannot be other properties at the root level",
+					"        pm.expect(Object.keys(responseJson)).to.include.members(['code']);",
+					"    });",
+					"    break;",
+					"  default:",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"}"
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "ea0c6e46-8a80-4388-b85c-d666ed1cd931",
+			"id": "83931cc4-2484-48a6-9238-1b9f00a321e4",
 			"key": "baseUrl",
 			"value": "https://api.nationwide.com/strategic-partnership-management/insurance-verification/v1"
+		},
+		{
+			"id": "e97f06bf-3a31-4c1e-bb4f-1a4f8a9c4eae",
+			"key": "requiredBriefsProperties",
+			"value": "firstName,lastName,dateOfBirth,policyNumber",
+			"type": "string"
+		},
+		{
+			"id": "fc5353e6-dca4-4bd8-bc8d-ccf15926d7ad",
+			"key": "mock_scenario",
+			"value": "200",
+			"type": "string"
 		}
 	]
 }
