@@ -2964,6 +2964,52 @@
 			"item": [
 				{
 					"name": "Check for auto insurance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a0fbbf9-1a1b-423d-ac75-f3e818b6187b",
+								"exec": [
+									"if(pm.response.code == 200){",
+									"    ",
+									"    // INITIAL VARIABLES",
+									"    responseJson                = pm.response.json();",
+									"    requiredBriefsProperties   = pm.collectionVariables.get('requiredBriefsProperties').split(',');",
+									"            ",
+									"",
+									"    // CONSUMER-DRIVEN CONTRACT TESTS",
+									"    // -------------------------------",
+									"",
+									"    // CONTRACT TEST: At the root level, there can only be a network property",
+									"    pm.test(\"Response does not contain other properties at the root level\", function () {",
+									"        // There cannot be other properties at the root level",
+									"        pm.expect(Object.keys(responseJson)).to.include.members(['briefResponses']).and.to.have.length(1);",
+									"    });",
+									"",
+									"    // CONTRACT TEST: The briefResponses property must be a list of network objects.",
+									"    pm.test(\"Response contains a list of networks which contains at least one brief\", function () {",
+									"        pm.expect(responseJson.briefResponses).to.be.an('array').with.length.greaterThan(0);",
+									"    });",
+									"",
+									"    // Test each network item",
+									"    responseJson.briefResponses.forEach( function (brief, index) {",
+									"",
+									"        // CONTRACT TESTS: Test mandatory response properities",
+									"        pm.test(\"Brief \" + index + \" contains all required properties\", function () {",
+									"            pm.expect(Object.keys(brief)).to.include.members(requiredBriefsProperties);",
+									"        });",
+									"",
+									"        pm.test(\"Brief \" + index + \" contains a firstName property with a string value\", function () {",
+									"            pm.expect(brief.firstName).and.to.be.a('string')",
+									"        });",
+									"",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "e6514b89-2720-4ece-9054-fbd949893ab0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -3496,7 +3542,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e6892c13-1a05-496a-817e-c0cf6eaa776d",
+				"id": "ba83d0b4-913b-4c9f-b218-558d679a4406",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3506,7 +3552,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "29e8e9da-6d06-4346-8ca0-47bf1c715548",
+				"id": "1222abce-c52c-4738-bdb0-0fef453514fd",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3516,9 +3562,15 @@
 	],
 	"variable": [
 		{
-			"id": "ea0c6e46-8a80-4388-b85c-d666ed1cd931",
+			"id": "dc22be54-d3b1-45a7-9f6b-1c78a322697b",
 			"key": "baseUrl",
 			"value": "https://api.nationwide.com/strategic-partnership-management/insurance-verification/v1"
+		},
+		{
+			"id": "0bfdf432-7542-4803-b25c-a7f5986473a6",
+			"key": "requiredBriefsProperties",
+			"value": "firstName,lastName,dateOfBirth,policyNumber",
+			"type": "string"
 		}
 	]
 }
