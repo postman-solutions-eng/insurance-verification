@@ -7,7 +7,7 @@ info:
     name: Nationwide Partner Onboarding Team
     url: https://developer.nationwide.com
     email: NW_EPO_Team@nationwide.com
-  version: 1.2.0
+  version: 1.1.1
 servers:
   - url: 'https://api.nationwide.com/strategic-partnership-management/insurance-verification/v1'
 security:
